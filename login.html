@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion — ZAKSOFT AI Secure Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #050e1f;
+      --bg2: #0a1628;
+      --bg3: #0d2145;
+      --cyan: #00f5d4;
+      --violet: #7c3aed;
+      --text: #f0f6ff;
+      --text-2: #94a3b8;
+      --border: rgba(255,255,255,0.08);
+      --red: #ef4444;
+      --green: #22c55e;
+      --font-b: 'Inter', sans-serif;
+      --font-h: 'Space Grotesk', sans-serif;
+    }
+    body {
+      font-family: var(--font-b);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-image: radial-gradient(ellipse at 20% 20%, rgba(0,245,212,0.06) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 80%, rgba(124,58,237,0.08) 0%, transparent 60%);
+    }
+    .auth-wrap {
+      width: 100%;
+      max-width: 420px;
+    }
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+      text-decoration: none;
+    }
+    .auth-logo-text {
+      font-family: var(--font-h);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .auth-logo-text span { color: var(--cyan); }
+    .auth-logo-sub {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-2);
+      letter-spacing: 0.1em;
+      display: block;
+    }
+    .auth-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+    }
+    .auth-tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--bg3);
+      border-radius: 10px;
+      padding: 4px;
+      margin-bottom: 28px;
+    }
+    .auth-tab {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-2);
+      font-family: var(--font-b);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .auth-tab.active {
+      background: var(--bg2);
+      color: var(--text);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+    .auth-title {
+      font-family: var(--font-h);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .auth-sub {
+      font-size: 13px;
+      color: var(--text-2);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-2);
+      margin-bottom: 6px;
+    }
+    input {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus { border-color: var(--cyan); }
+    input::placeholder { color: var(--text-2); opacity: 0.6; }
+    .btn-submit {
+      width: 100%;
+      padding: 13px;
+      background: linear-gradient(135deg, var(--cyan), #00c9a7);
+      border: none;
+      border-radius: 10px;
+      color: #050e1f;
+      font-family: var(--font-h);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .auth-error {
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #fca5a5;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .auth-success {
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #86efac;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .demo-hint {
+      margin-top: 20px;
+      padding: 12px 14px;
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 8px;
+      font-size: 12px;
+      color: var(--text-2);
+      text-align: center;
+    }
+    .demo-hint strong { color: var(--violet); }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-2);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--cyan); }
+    #formRegister { display: none; }
+  </style>
+</head>
+<body>
+  <div class="auth-wrap">
+    <a href="index.html" class="auth-logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 2L4 7v8c0 7.4 5.1 14.3 12 16 6.9-1.7 12-8.6 12-16V7L16 2z" fill="#0a1628" stroke="url(#sg)" stroke-width="0.5"/>
+        <circle cx="16" cy="15" r="4" fill="none" stroke="#00f5d4" stroke-width="1.5"/>
+        <circle cx="16" cy="15" r="1.5" fill="#00f5d4"/>
+        <defs><linearGradient id="sg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#00f5d4"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+      </svg>
+      <div>
+        <span class="auth-logo-text">ZAK<span>SOFT</span></span>
+        <span class="auth-logo-sub">AI SECURE PLATFORM</span>
+      </div>
+    </a>
+
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="showTab('login')">Connexion</button>
+        <button class="auth-tab" id="tabRegister" onclick="showTab('register')">Inscription</button>
+      </div>
+
+      <div id="authError" class="auth-error"></div>
+      <div id="authSuccess" class="auth-success"></div>
+
+      <!-- LOGIN FORM -->
+      <form id="formLogin" onsubmit="handleLogin(event)">
+        <div class="auth-title">Bon retour 👋</div>
+        <div class="auth-sub">Connectez-vous à votre espace sécurité</div>
+        <div class="form-group">
+          <label>Adresse email</label>
+          <input type="email" id="loginEmail" placeholder="vous@entreprise.com" required />
+        </div>
+        <div class="form-group">
+          <label>Mot de passe</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn-submit" id="loginBtn">Se connecter →</button>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="formRegister" onsubmit="handleRegister(event)">
+        <div class="auth-title">Créer un compte</div>
+        <div class="auth-sub">Démarrez votre protection cybersécurité</div>
+        <div class="form-group">
+          <label>Nom complet</label>
+          <input type="text" id="regName" placeholder="Aya Konan" required />
+        </div>
+        <div class="form-group">
+          <label>Adresse email</label>
+          <input type="email" id="regEmail" placeholder="vous@entreprise.com" required />
+        </div>
+        <div class="form-group">
+          <label>Mot de passe</label>
+          <input type="password" id="regPassword" placeholder="Min. 8 caractères" minlength="8" required />
+        </div>
+        <button type="submit" class="btn-submit" id="registerBtn">Créer mon compte →</button>
+      </form>
+
+      <div class="demo-hint">
+        💡 Demo rapide : créez un compte ou utilisez <strong>demo@zaksoft.ai / demo1234</strong>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+  </div>
+
+  <script>
+    const API = 'http://localhost:8000/api';
+
+    function showTab(tab) {
+      document.getElementById('formLogin').style.display = tab === 'login' ? 'block' : 'none';
+      document.getElementById('formRegister').style.display = tab === 'register' ? 'block' : 'none';
+      document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
+      document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
+      hideMessages();
+    }
+
+    function showError(msg) {
+      const el = document.getElementById('authError');
+      el.textContent = msg;
+      el.style.display = 'block';
+      document.getElementById('authSuccess').style.display = 'none';
+    }
+
+    function showSuccess(msg) {
+      const el = document.getElementById('authSuccess');
+      el.textContent = msg;
+      el.style.display = 'block';
+      document.getElementById('authError').style.display = 'none';
+    }
+
+    function hideMessages() {
+      document.getElementById('authError').style.display = 'none';
+      document.getElementById('authSuccess').style.display = 'none';
+    }
+
+    function saveSession(data) {
+      localStorage.setItem('zaksoft_token', data.access_token);
+      localStorage.setItem('zaksoft_user', JSON.stringify(data.user));
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const btn = document.getElementById('loginBtn');
+      btn.disabled = true;
+      btn.textContent = 'Connexion...';
+      hideMessages();
+
+      try {
+        const res = await fetch(`${API}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: document.getElementById('loginEmail').value,
+            password: document.getElementById('loginPassword').value,
+          })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Erreur de connexion');
+        saveSession(data);
+        showSuccess('Connexion réussie ! Redirection...');
+        setTimeout(() => window.location.href = 'dashboard.html', 800);
+      } catch (err) {
+        showError(err.message);
+        btn.disabled = false;
+        btn.textContent = 'Se connecter →';
+      }
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      const btn = document.getElementById('registerBtn');
+      btn.disabled = true;
+      btn.textContent = 'Création...';
+      hideMessages();
+
+      try {
+        const res = await fetch(`${API}/auth/register`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: document.getElementById('regEmail').value,
+            password: document.getElementById('regPassword').value,
+            full_name: document.getElementById('regName').value,
+          })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Erreur lors de la création');
+        saveSession(data);
+        showSuccess('Compte créé ! Redirection vers le dashboard...');
+        setTimeout(() => window.location.href = 'dashboard.html', 800);
+      } catch (err) {
+        showError(err.message);
+        btn.disabled = false;
+        btn.textContent = 'Créer mon compte →';
+      }
+    }
+
+    // Auto-redirect if already logged in
+    if (localStorage.getItem('zaksoft_token')) {
+      window.location.href = 'dashboard.html';
+    }
+  </script>
+</body>
+</html>

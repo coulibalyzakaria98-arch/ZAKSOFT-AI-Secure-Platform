@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from database import Base, engine; from models import User, Website, Scan, Report; Base.metadata.create_all\\(bind=engine\\); print\\('DB OK'\\)\")",
+      "Bash(python -c \"from scanner import run_scan; import asyncio; result = asyncio.run\\(run_scan\\('https://example.com'\\)\\); print\\('Score:', result['score']\\); print\\('SSL valid:', result['ssl']['valid']\\); print\\('Vulns:', len\\(result['vulnerabilities']\\)\\)\")",
+      "Bash(python -m uvicorn main:app --host 0.0.0.0 --port 8000)",
+      "Bash(curl -s http://localhost:8000/api/health)",
+      "Bash(curl -s -X POST http://localhost:8000/api/auth/register -H \"Content-Type: application/json\" -d '{\"email\":\"demo@zaksoft.ai\",\"password\":\"demo1234\",\"full_name\":\"Demo User\"}')",
+      "Bash(python -m json.tool)",
+      "Bash(curl -s -X POST http://localhost:8000/api/auth/register -H \"Content-Type: application/json\" -d \"{\\\\\"email\\\\\":\\\\\"demo@zaksoft.ai\\\\\",\\\\\"password\\\\\":\\\\\"demo1234\\\\\",\\\\\"full_name\\\\\":\\\\\"Demo User\\\\\"}\")",
+      "Bash(python -c ' *)",
+      "Bash(curl -s -X POST \"http://localhost:8000/api/auth/register\" -H \"Content-Type: application/json\" -d \"{\\\\\"email\\\\\":\\\\\"demo@zaksoft.ai\\\\\",\\\\\"password\\\\\":\\\\\"demo1234\\\\\",\\\\\"full_name\\\\\":\\\\\"Demo User\\\\\"}\")",
+      "Bash(pip install *)",
+      "Bash(npm --version)",
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npx tailwindcss *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:5173)"
+    ]
+  }
+}

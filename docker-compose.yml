@@ -1,0 +1,57 @@
+version: '3.9'
+
+# ── Development ────────────────────────────────────────────────
+# Frontend: run with `npm run dev` (hot reload, outside Docker)
+# Backend:  live-reload via volume mount
+# Usage: docker compose up -d
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: zaksoft-postgres
+    environment:
+      POSTGRES_USER: zaksoft
+      POSTGRES_PASSWORD: zaksoft_dev
+      POSTGRES_DB: zaksoft_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zaksoft"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: zaksoft-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: zaksoft-backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://zaksoft:zaksoft_dev@postgres:5432/zaksoft_db
+      SECRET_KEY: dev-secret-key-change-in-production
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      CORS_ORIGINS: '["*"]'
+    volumes:
+      - ./backend:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  postgres_data:
+  redis_data:

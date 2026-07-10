@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — ZAKSOFT AI Secure Platform</title>
+  <meta name="description" content="Tableau de bord ZAKSOFT AI — Gérez la cybersécurité de votre organisation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <div class="logo-icon-sm">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L4 7v8c0 7.4 5.1 14.3 12 16 6.9-1.7 12-8.6 12-16V7L16 2z" fill="url(#sg2)" stroke="url(#ss2)" stroke-width="0.5"/>
+            <circle cx="16" cy="15" r="4" fill="none" stroke="#00f5d4" stroke-width="1.5"/>
+            <circle cx="16" cy="15" r="1.5" fill="#00f5d4"/>
+            <defs>
+              <linearGradient id="sg2" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0a1628"/><stop offset="100%" stop-color="#0d2145"/>
+              </linearGradient>
+              <linearGradient id="ss2" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00f5d4"/><stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="sidebar-brand">
+          <span class="brand-name">ZAK<span class="brand-accent">SOFT</span></span>
+          <span class="brand-sub">AI SECURE</span>
+        </div>
+      </a>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">&#8249;</button>
+    </div>
+    <div class="org-badge">
+      <div class="org-avatar">AK</div>
+      <div class="org-info">
+        <span class="org-name">Boutique Éclat CI</span>
+        <span class="org-plan">Plan Pro</span>
+      </div>
+      <div class="org-status-dot"></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-label">Principal</span>
+        <a href="#" class="nav-item active" data-page="overview" id="nav-overview">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Vue d'ensemble</span>
+        </a>
+        <a href="#" class="nav-item" data-page="scanner" id="nav-scanner">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Scanner IA</span><span class="nav-badge">Live</span>
+        </a>
+        <a href="#" class="nav-item" data-page="assistant" id="nav-assistant">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>AI Assistant</span>
+        </a>
+        <a href="#" class="nav-item" data-page="training" id="nav-training">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 12v5c3 3 9 3 12 0v-5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span>Formation</span>
+        </a>
+        <a href="#" class="nav-item" data-page="devassist" id="nav-devassist">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Dev Assistant</span><span class="nav-badge new">Nouveau</span>
+        </a>
+      </div>
+      <div class="nav-section">
+        <span class="nav-label">Gestion</span>
+        <a href="#" class="nav-item" data-page="reports" id="nav-reports">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.8"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Rapports</span>
+        </a>
+        <a href="#" class="nav-item" data-page="alerts" id="nav-alerts">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Alertes</span><span class="nav-badge alert">3</span>
+        </a>
+        <a href="#" class="nav-item" data-page="settings" id="nav-settings">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Paramètres</span>
+        </a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="security-score-mini">
+        <span class="ssm-label">Score global</span>
+        <div class="ssm-bar"><div class="ssm-fill" style="width:72%"></div></div>
+        <span class="ssm-val">72/100</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content" id="mainContent">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">&#9776;</button>
+        <div class="topbar-search">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input type="text" placeholder="Rechercher..." id="topbarSearch" />
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button class="topbar-btn alert-btn" title="Alertes">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="alert-count">3</span>
+        </button>
+        <div class="topbar-user">
+          <div class="user-avatar">AK</div>
+          <div class="user-info">
+            <span class="user-name">Aya Konan</span>
+            <span class="user-role">Admin</span>
+          </div>
+        </div>
+        <button class="topbar-btn" onclick="logout()" title="Déconnexion" style="margin-left:4px">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== OVERVIEW ===== -->
+    <div class="page active" id="page-overview">
+      <div class="page-header">
+        <div>
+          <h1>Vue d'ensemble</h1>
+          <p class="page-subtitle">Bienvenue, Aya 👋 — État de sécurité de votre organisation</p>
+        </div>
+        <div class="page-actions">
+          <span class="last-scan">Dernier scan : il y a 2h</span>
+          <button class="btn-primary-sm" onclick="switchPage('scanner')">Nouveau scan →</button>
+        </div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon score"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#00f5d4" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <div class="kpi-body"><span class="kpi-val">72</span><span class="kpi-unit">/100</span><span class="kpi-label">Score sécurité</span></div>
+          <div class="kpi-trend up">▲ +8 ce mois</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon critical"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="#ef4444" stroke-width="1.8"/></svg></div>
+          <div class="kpi-body"><span class="kpi-val">3</span><span class="kpi-label">Risques critiques</span></div>
+          <div class="kpi-trend down">▼ -2 cette semaine</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon scans"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="#7c3aed" stroke-width="1.8"/><path d="m21 21-4.35-4.35" stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="kpi-body"><span class="kpi-val">47</span><span class="kpi-label">Scans ce mois</span></div>
+          <div class="kpi-trend up">▲ +12 vs mois dernier</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon training"><svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z" stroke="#f59e0b" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <div class="kpi-body"><span class="kpi-val">8</span><span class="kpi-unit">/10</span><span class="kpi-label">Employés formés</span></div>
+          <div class="kpi-trend up">▲ 80% de l'équipe</div>
+        </div>
+      </div>
+      <div class="charts-row">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Évolution du score</h3>
+            <div class="chart-tabs">
+              <button class="chart-tab active">7j</button>
+              <button class="chart-tab">30j</button>
+              <button class="chart-tab">90j</button>
+            </div>
+          </div>
+          <div class="chart-area">
+            <svg viewBox="0 0 400 160" class="line-chart">
+              <line x1="0" y1="40" x2="400" y2="40" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <line x1="0" y1="80" x2="400" y2="80" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <line x1="0" y1="120" x2="400" y2="120" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <defs>
+                <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#00f5d4" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#00f5d4" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="lineGrad2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#00f5d4"/>
+                  <stop offset="100%" stop-color="#7c3aed"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,120 C50,110 80,100 120,90 C160,80 180,85 220,75 C260,65 280,60 320,50 C360,40 380,35 400,32 L400,160 L0,160 Z" fill="url(#areaGrad)"/>
+              <path d="M0,120 C50,110 80,100 120,90 C160,80 180,85 220,75 C260,65 280,60 320,50 C360,40 380,35 400,32" fill="none" stroke="url(#lineGrad2)" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="400" cy="32" r="5" fill="#7c3aed" stroke="#fff" stroke-width="2"/>
+              <text x="20" y="43" fill="rgba(148,163,184,0.7)" font-size="9">100</text>
+              <text x="20" y="83" fill="rgba(148,163,184,0.7)" font-size="9">75</text>
+              <text x="20" y="123" fill="rgba(148,163,184,0.7)" font-size="9">50</text>
+            </svg>
+            <div class="chart-x-labels">
+              <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+            </div>
+          </div>
+        </div>
+        <div class="chart-card donut-card">
+          <div class="chart-header"><h3>Répartition des risques</h3></div>
+          <div class="donut-wrap">
+            <svg viewBox="0 0 160 160" class="donut-svg">
+              <circle cx="80" cy="80" r="60" fill="none" stroke="#1a2744" stroke-width="24"/>
+              <circle cx="80" cy="80" r="60" fill="none" stroke="#ef4444" stroke-width="24" stroke-dasharray="113.1 263.9" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="60" fill="none" stroke="#f59e0b" stroke-width="24" stroke-dasharray="169.6 207.4" stroke-dashoffset="-113.1" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="60" fill="none" stroke="#7c3aed" stroke-width="24" stroke-dasharray="94.2 282.8" stroke-dashoffset="-282.7" transform="rotate(-90 80 80)"/>
+              <text x="80" y="76" text-anchor="middle" fill="#f0f6ff" font-size="18" font-weight="800" font-family="Space Grotesk">18</text>
+              <text x="80" y="92" text-anchor="middle" fill="#94a3b8" font-size="9">Problèmes</text>
+            </svg>
+            <div class="donut-legend">
+              <div class="legend-item"><span class="leg-dot" style="background:#ef4444"></span>Critiques (30%)</div>
+              <div class="legend-item"><span class="leg-dot" style="background:#f59e0b"></span>Avertissements (45%)</div>
+              <div class="legend-item"><span class="leg-dot" style="background:#7c3aed"></span>Informatifs (25%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="two-col-section">
+        <div class="data-card">
+          <div class="data-card-header">
+            <h3>Scans récents</h3>
+            <button class="link-btn" onclick="switchPage('scanner')">Voir tout →</button>
+          </div>
+          <div class="scan-history">
+            <div class="scan-row"><div class="scan-info"><span class="scan-site">boutique-eclat.ci</span><span class="scan-time">Il y a 2 heures</span></div><div class="scan-score good">88/100</div><span class="scan-status done">✓ Complété</span></div>
+            <div class="scan-row"><div class="scan-info"><span class="scan-site">api.boutique-eclat.ci</span><span class="scan-time">Il y a 1 jour</span></div><div class="scan-score warn">65/100</div><span class="scan-status warn">⚠ Risques</span></div>
+            <div class="scan-row"><div class="scan-info"><span class="scan-site">admin.boutique-eclat.ci</span><span class="scan-time">Il y a 3 jours</span></div><div class="scan-score bad">34/100</div><span class="scan-status bad">❌ Critique</span></div>
+            <div class="scan-row"><div class="scan-info"><span class="scan-site">shop.boutique-eclat.ci</span><span class="scan-time">Il y a 1 semaine</span></div><div class="scan-score good">92/100</div><span class="scan-status done">✓ Complété</span></div>
+          </div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-header">
+            <h3>Alertes actives</h3>
+            <button class="link-btn" onclick="switchPage('alerts')">Gérer →</button>
+          </div>
+          <div class="alerts-list">
+            <div class="alert-item critical"><div class="alert-icon">🚨</div><div class="alert-body"><strong>Certificat SSL expire dans 7 jours</strong><span>admin.boutique-eclat.ci</span></div><button class="alert-action">Résoudre</button></div>
+            <div class="alert-item warning"><div class="alert-icon">⚠️</div><div class="alert-body"><strong>Nouvelle vulnérabilité OWASP A03</strong><span>Injection — api.boutique-eclat.ci</span></div><button class="alert-action">Voir</button></div>
+            <div class="alert-item info"><div class="alert-icon">ℹ️</div><div class="alert-body"><strong>Formation incomplète</strong><span>2 employés n'ont pas terminé</span></div><button class="alert-action">Rappeler</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SCANNER PAGE ===== -->
+    <div class="page" id="page-scanner">
+      <div class="page-header"><div><h1>Scanner IA</h1><p class="page-subtitle">Analysez la sécurité de vos sites web</p></div></div>
+      <div class="scanner-embed">
+        <div class="url-input-group-dash">
+          <span class="url-prefix-d">🌐</span>
+          <input type="text" id="dashScanUrl" placeholder="https://votre-site.com" class="url-input-d" onkeydown="if(event.key==='Enter')startDashScan()" />
+          <button class="scan-btn-d" id="dashScanBtn" onclick="startDashScan()">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Scanner
+          </button>
+        </div>
+        <div class="scan-progress-d" id="dashScanProgress" style="display:none">
+          <div class="dp-header">
+            <svg class="spin" width="20" height="20" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#00f5d4" stroke-width="2" stroke-dasharray="20 40"/></svg>
+            <span id="dashProgressLabel">Analyse en cours...</span>
+          </div>
+          <div class="dp-bar-wrap"><div class="dp-bar" id="dashProgressBar"></div></div>
+          <div class="dp-steps">
+            <div class="dp-step" id="dstep-ssl">🔐 Vérification SSL/HTTPS</div>
+            <div class="dp-step" id="dstep-headers">🛡️ Security Headers</div>
+            <div class="dp-step" id="dstep-owasp">🔎 OWASP Top 10</div>
+            <div class="dp-step" id="dstep-server">🖥️ Version serveur</div>
+            <div class="dp-step" id="dstep-ai">🤖 Rapport IA</div>
+          </div>
+        </div>
+        <div class="dash-results" id="dashResults" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- ===== AI ASSISTANT PAGE ===== -->
+    <div class="page" id="page-assistant">
+      <div class="page-header"><div><h1>AI Security Assistant</h1><p class="page-subtitle">Posez vos questions de cybersécurité à notre assistant IA</p></div></div>
+      <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg ai">
+            <div class="msg-avatar ai-av">🤖</div>
+            <div class="msg-bubble">
+              <strong>ZAKSOFT AI</strong>
+              <p>Bonjour ! Je suis votre assistant en cybersécurité. Je peux vous aider à :</p>
+              <ul><li>🔐 Analyser votre configuration de sécurité</li><li>🛡️ Expliquer les vulnérabilités OWASP</li><li>⚡ Proposer des corrections prioritaires</li><li>📋 Répondre à vos questions techniques</li></ul>
+              <p>Comment puis-je vous aider aujourd'hui ?</p>
+              <div class="quick-questions">
+                <button class="quick-q" onclick="sendQuickQuestion('Mon site WordPress est-il sécurisé ?')">Mon WordPress est-il sécurisé ?</button>
+                <button class="quick-q" onclick="sendQuickQuestion('Comment configurer un SSL gratuit ?')">Comment configurer SSL ?</button>
+                <button class="quick-q" onclick="sendQuickQuestion('Qu\'est-ce que le phishing et comment le détecter ?')">C'est quoi le phishing ?</button>
+                <button class="quick-q" onclick="sendQuickQuestion('Comment protéger ma base de données MongoDB ?')">Sécuriser MongoDB ?</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <div class="chat-input-wrap">
+            <textarea id="chatInput" placeholder="Posez votre question de sécurité..." rows="1" onkeydown="handleChatKey(event)"></textarea>
+            <button class="chat-send-btn" onclick="sendChatMessage()">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <p class="chat-note">ZAKSOFT AI peut faire des erreurs. Consultez un expert pour les décisions critiques.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TRAINING PAGE ===== -->
+    <div class="page" id="page-training">
+      <div class="page-header"><div><h1>Formation Cyber</h1><p class="page-subtitle">Formez votre équipe aux bonnes pratiques</p></div><button class="btn-primary-sm">Inviter +</button></div>
+      <div class="training-overview">
+        <div class="training-stat"><span class="ts-val">8/10</span><span class="ts-label">Employés formés</span></div>
+        <div class="training-stat"><span class="ts-val">78%</span><span class="ts-label">Score moyen quiz</span></div>
+        <div class="training-stat"><span class="ts-val">3</span><span class="ts-label">Modules disponibles</span></div>
+        <div class="training-stat"><span class="ts-val">2</span><span class="ts-label">Simulations phishing</span></div>
+      </div>
+      <div class="modules-training">
+        <div class="training-module">
+          <div class="tm-header"><div class="tm-icon">🎣</div><div class="tm-info"><h3>Reconnaître le Phishing</h3><p>Identifier les emails et messages malveillants</p></div><div class="tm-badge done">✓ Complété</div></div>
+          <div class="tm-progress"><div class="tm-bar" style="width:100%;background:linear-gradient(90deg,#22c55e,#16a34a)"></div></div>
+          <div class="tm-footer"><span>8/10 employés · Score moyen : 85%</span><button class="tm-btn">Voir résultats</button></div>
+        </div>
+        <div class="training-module">
+          <div class="tm-header"><div class="tm-icon">🔐</div><div class="tm-info"><h3>Mots de passe forts & MFA</h3><p>Authentification robuste et 2FA</p></div><div class="tm-badge progress">En cours</div></div>
+          <div class="tm-progress"><div class="tm-bar" style="width:60%;background:linear-gradient(90deg,#f59e0b,#d97706)"></div></div>
+          <div class="tm-footer"><span>6/10 employés · Score moyen : 72%</span><button class="tm-btn">Continuer</button></div>
+        </div>
+        <div class="training-module">
+          <div class="tm-header"><div class="tm-icon">🌐</div><div class="tm-info"><h3>Sécurité des réseaux</h3><p>VPN, Wi-Fi public, bonnes pratiques réseau</p></div><div class="tm-badge locked">🔒 Bientôt</div></div>
+          <div class="tm-progress"><div class="tm-bar" style="width:0%"></div></div>
+          <div class="tm-footer"><span>Disponible le 15 août 2025</span><button class="tm-btn" disabled>Bientôt</button></div>
+        </div>
+      </div>
+      <div class="quiz-section">
+        <div class="quiz-header"><h3>🎯 Quiz rapide — Testez vos connaissances</h3><button class="quiz-start-btn" onclick="startQuiz()">Commencer →</button></div>
+        <div class="quiz-body" id="quizBody" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- ===== DEV ASSISTANT PAGE ===== -->
+    <div class="page" id="page-devassist">
+      <div class="page-header"><div><h1>Secure Dev Assistant</h1><p class="page-subtitle">Analysez votre code et détectez les vulnérabilités</p></div></div>
+      <div class="dev-container">
+        <div class="dev-input-area">
+          <div class="dev-toolbar">
+            <select class="lang-select" id="langSelect">
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="php">PHP</option>
+              <option value="sql">SQL</option>
+            </select>
+            <button class="dev-analyze-btn" onclick="analyzeCode()">🔍 Analyser le code</button>
+            <button class="dev-clear-btn" onclick="clearCode()">✕ Effacer</button>
+          </div>
+          <textarea class="code-editor" id="codeEditor" placeholder="Collez votre code ici..." spellcheck="false">// Exemple de code vulnérable — Analysez-le !
+const express = require('express');
+const mysql = require('mysql');
+const app = express();
+
+app.get('/user', (req, res) => {
+  const userId = req.query.id;
+  // ⚠️ VULNÉRABILITÉ: Injection SQL possible
+  const query = `SELECT * FROM users WHERE id = ${userId}`;
+  db.query(query, (err, result) => {
+    res.json(result);
+  });
+});
+
+app.post('/login', (req, res) => {
+  const { password } = req.body;
+  // ⚠️ VULNÉRABILITÉ: Mot de passe en clair dans les logs
+  console.log('Tentative de connexion avec:', password);
+  // ⚠️ VULNÉRABILITÉ: Pas de hachage du mot de passe
+  if (password === 'admin123') {
+    res.json({ token: 'abc123' }); // Token faible
+  }
+});</textarea>
+        </div>
+        <div class="dev-results" id="devResults">
+          <div class="dev-placeholder">
+            <div class="dev-placeholder-icon">🔍</div>
+            <p>Collez votre code à gauche et cliquez sur <strong>Analyser</strong> pour détecter les vulnérabilités de sécurité.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== REPORTS PAGE ===== -->
+    <div class="page" id="page-reports">
+      <div class="page-header"><div><h1>Rapports</h1><p class="page-subtitle">Historique complet de vos analyses de sécurité</p></div><button class="btn-primary-sm">Exporter PDF</button></div>
+      <div class="reports-table-wrap">
+        <table class="reports-table">
+          <thead><tr><th>Site</th><th>Date</th><th>Score</th><th>Risques</th><th>Statut</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>boutique-eclat.ci</td><td>09 Jul 2025</td><td><span class="score-chip good">88/100</span></td><td>2 warnings</td><td><span class="status-chip done">Complété</span></td><td><button class="table-btn">📄 Voir</button></td></tr>
+            <tr><td>api.boutique-eclat.ci</td><td>08 Jul 2025</td><td><span class="score-chip warn">65/100</span></td><td>5 risques</td><td><span class="status-chip warn">En attente</span></td><td><button class="table-btn">📄 Voir</button></td></tr>
+            <tr><td>admin.boutique-eclat.ci</td><td>06 Jul 2025</td><td><span class="score-chip bad">34/100</span></td><td>9 critiques</td><td><span class="status-chip bad">Critique</span></td><td><button class="table-btn">📄 Voir</button></td></tr>
+            <tr><td>shop.boutique-eclat.ci</td><td>02 Jul 2025</td><td><span class="score-chip good">92/100</span></td><td>1 info</td><td><span class="status-chip done">Complété</span></td><td><button class="table-btn">📄 Voir</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== ALERTS PAGE ===== -->
+    <div class="page" id="page-alerts">
+      <div class="page-header"><div><h1>Alertes</h1><p class="page-subtitle">3 alertes actives nécessitent votre attention</p></div></div>
+      <div class="full-alerts-list">
+        <div class="full-alert-item critical"><div class="fa-severity">🚨 CRITIQUE</div><div class="fa-body"><h3>Certificat SSL expirant</h3><p>Le certificat SSL de admin.boutique-eclat.ci expire dans <strong>7 jours</strong>. Sans renouvellement, le site sera inaccessible et marqué comme non sécurisé.</p><div class="fa-actions"><button class="fa-btn primary">Renouveler maintenant</button><button class="fa-btn">Ignorer</button></div></div></div>
+        <div class="full-alert-item warning"><div class="fa-severity">⚠️ ÉLEVÉ</div><div class="fa-body"><h3>Vulnérabilité OWASP A03:2021 — Injection</h3><p>Une injection SQL potentielle a été détectée sur api.boutique-eclat.ci dans le paramètre <code>userId</code>. Un attaquant pourrait accéder à toute votre base de données.</p><div class="fa-actions"><button class="fa-btn primary">Voir le détail</button><button class="fa-btn">Marquer comme résolu</button></div></div></div>
+        <div class="full-alert-item info"><div class="fa-severity">ℹ️ INFO</div><div class="fa-body"><h3>Formation incomplète — 2 employés</h3><p>Marie Dupont et Jean Kobenan n'ont pas terminé le module "Mots de passe forts & MFA". Envoyez-leur un rappel.</p><div class="fa-actions"><button class="fa-btn primary">Envoyer rappel</button><button class="fa-btn">Voir les détails</button></div></div></div>
+      </div>
+    </div>
+
+    <!-- ===== SETTINGS PAGE ===== -->
+    <div class="page" id="page-settings">
+      <div class="page-header"><div><h1>Paramètres</h1><p class="page-subtitle">Configurez votre organisation et vos préférences</p></div></div>
+      <div class="settings-grid">
+        <div class="settings-section"><h3>Organisation</h3><div class="setting-row"><label>Nom de l'organisation</label><input type="text" value="Boutique Éclat CI" class="setting-input"/></div><div class="setting-row"><label>Email de contact</label><input type="email" value="contact@boutique-eclat.ci" class="setting-input"/></div><div class="setting-row"><label>Secteur d'activité</label><select class="setting-input"><option>Commerce électronique</option><option>Finance</option><option>Santé</option><option>Education</option></select></div></div>
+        <div class="settings-section"><h3>Notifications</h3><div class="toggle-row"><span>Alertes critiques par email</span><label class="toggle"><input type="checkbox" checked /><span class="toggle-slider"></span></label></div><div class="toggle-row"><span>Rapport hebdomadaire</span><label class="toggle"><input type="checkbox" checked /><span class="toggle-slider"></span></label></div><div class="toggle-row"><span>Notifications de formation</span><label class="toggle"><input type="checkbox" /><span class="toggle-slider"></span></label></div></div>
+        <div class="settings-section"><h3>Sécurité du compte</h3><div class="setting-row"><label>Authentification à deux facteurs</label><button class="btn-primary-sm">Activer MFA</button></div><div class="setting-row"><label>Changer le mot de passe</label><button class="btn-outline-sm">Modifier →</button></div><div class="setting-row"><label>Sessions actives</label><button class="btn-outline-sm danger">Déconnecter toutes →</button></div></div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
