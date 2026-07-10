@@ -5,6 +5,14 @@
       "destination": "https://zaksoft-backend.onrender.com/api/:path*"
     },
     {
+      "source": "/",
+      "destination": "/landing.html"
+    },
+    {
+      "source": "/(login|dashboard|scanner|assistant|training|dev|reports)(.*)",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

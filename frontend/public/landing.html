@@ -1,0 +1,627 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZAKSOFT AI Secure Platform – Cybersécurité IA pour l'Afrique</title>
+  <meta name="description" content="ZAKSOFT AI Secure Platform aide les PME africaines à identifier leurs risques numériques, améliorer leurs pratiques de sécurité et adopter des technologies plus sûres grâce à l'intelligence artificielle." />
+  <meta property="og:title" content="ZAKSOFT AI Secure Platform" />
+  <meta property="og:description" content="Plateforme de cybersécurité IA pour les PME africaines." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 2L4 7v8c0 7.4 5.1 14.3 12 16 6.9-1.7 12-8.6 12-16V7L16 2z" fill="url(#shieldGrad)" stroke="url(#shieldStroke)" stroke-width="0.5"/>
+            <circle cx="16" cy="15" r="4" fill="none" stroke="#00f5d4" stroke-width="1.5"/>
+            <circle cx="16" cy="15" r="1.5" fill="#00f5d4"/>
+            <line x1="16" y1="9" x2="16" y2="11" stroke="#00f5d4" stroke-width="1"/>
+            <line x1="16" y1="19" x2="16" y2="21" stroke="#00f5d4" stroke-width="1"/>
+            <line x1="10" y1="15" x2="12" y2="15" stroke="#00f5d4" stroke-width="1"/>
+            <line x1="20" y1="15" x2="22" y2="15" stroke="#00f5d4" stroke-width="1"/>
+            <defs>
+              <linearGradient id="shieldGrad" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0a1628"/>
+                <stop offset="100%" stop-color="#0d2145"/>
+              </linearGradient>
+              <linearGradient id="shieldStroke" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00f5d4"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">ZAK<span class="logo-accent">SOFT</span></span>
+        <span class="logo-sub">AI SECURE</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Modules</a></li>
+        <li><a href="#scanner">Scanner</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#pricing">Tarifs</a></li>
+        <li><a href="/login" class="nav-cta">Dashboard →</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Powered by AI · Built for Africa
+      </div>
+      <h1 class="hero-title">
+        Sécurisez votre<br />
+        <span class="gradient-text">avenir numérique</span><br />
+        avec l'IA
+      </h1>
+      <p class="hero-subtitle">
+        ZAKSOFT AI Secure Platform aide les PME, organisations et institutions africaines à
+        identifier leurs risques numériques, améliorer leurs pratiques de sécurité et adopter
+        des technologies plus sûres — sans expertise en cybersécurité.
+      </p>
+      <div class="hero-actions">
+        <a href="/login" class="btn btn-primary" id="hero-cta-primary">
+          <span>Commencer gratuitement</span>
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#scanner" class="btn btn-secondary" id="hero-cta-scanner">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Scanner un site</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">PME protégées</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="12000">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Scans réalisés</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Satisfaction client</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="security-card glass-card" id="floatCard1">
+        <div class="card-header">
+          <div class="pulse-dot green"></div>
+          <span>Shield Active</span>
+        </div>
+        <div class="score-ring">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#1a2744" stroke-width="8"/>
+            <circle cx="50" cy="50" r="40" fill="none" stroke="url(#ringGrad)" stroke-width="8"
+              stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round"
+              transform="rotate(-90 50 50)"/>
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#00f5d4"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="ring-score">75<span>/100</span></div>
+        </div>
+        <p class="card-label">Score Sécurité</p>
+      </div>
+
+      <div class="threat-card glass-card" id="floatCard2">
+        <div class="threat-title">
+          <svg width="14" height="14" fill="#f59e0b" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          Menaces détectées
+        </div>
+        <div class="threat-list">
+          <div class="threat-item high">❌ CSP manquant</div>
+          <div class="threat-item med">⚠️ Ancien serveur</div>
+          <div class="threat-item low">ℹ️ HTTP sans HTTPS</div>
+        </div>
+      </div>
+
+      <div class="ai-card glass-card" id="floatCard3">
+        <div class="ai-icon">🤖</div>
+        <div class="ai-text">
+          <strong>IA Assistant</strong>
+          <span>Recommandation prête</span>
+        </div>
+        <div class="ai-arrow">→</div>
+      </div>
+
+      <!-- Central Africa Map SVG -->
+      <div class="africa-visual">
+        <svg viewBox="0 0 300 350" class="africa-svg">
+          <!-- Simplified Africa outline -->
+          <path d="M120,20 L180,15 L220,40 L240,80 L250,130 L245,170 L260,200 L250,240
+                   L230,270 L200,300 L170,320 L150,325 L130,310 L110,280 L90,250
+                   L75,210 L70,170 L60,140 L55,110 L65,70 L85,40 Z"
+            fill="none" stroke="url(#africaStroke)" stroke-width="2" opacity="0.6"/>
+
+          <!-- Glowing dots on map (cities) -->
+          <circle cx="150" cy="100" r="4" fill="#00f5d4" opacity="0.9">
+            <animate attributeName="r" values="3;6;3" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="180" cy="180" r="3" fill="#7c3aed" opacity="0.8">
+            <animate attributeName="r" values="2;5;2" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="120" cy="220" r="3" fill="#00f5d4" opacity="0.7">
+            <animate attributeName="r" values="2;5;2" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="200" cy="130" r="3" fill="#f59e0b" opacity="0.8">
+            <animate attributeName="r" values="2;4;2" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- Connection lines -->
+          <line x1="150" y1="100" x2="180" y2="180" stroke="#00f5d4" stroke-width="0.8" opacity="0.4" stroke-dasharray="4,4">
+            <animate attributeName="stroke-dashoffset" values="0;8" dur="1s" repeatCount="indefinite"/>
+          </line>
+          <line x1="180" y1="180" x2="120" y2="220" stroke="#7c3aed" stroke-width="0.8" opacity="0.4" stroke-dasharray="4,4">
+            <animate attributeName="stroke-dashoffset" values="0;8" dur="1.3s" repeatCount="indefinite"/>
+          </line>
+          <line x1="150" y1="100" x2="200" y2="130" stroke="#00f5d4" stroke-width="0.8" opacity="0.4" stroke-dasharray="4,4">
+            <animate attributeName="stroke-dashoffset" values="0;8" dur="1.6s" repeatCount="indefinite"/>
+          </line>
+
+          <defs>
+            <linearGradient id="africaStroke" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00f5d4"/>
+              <stop offset="100%" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUSTED BY ===== -->
+  <section class="trusted-section">
+    <div class="container">
+      <p class="trusted-label">Reconnu par des acteurs clés de l'écosystème africain</p>
+      <div class="trusted-logos">
+        <div class="trusted-item">🌍 Cyber4Africa</div>
+        <div class="trusted-item">🇨🇮 ARTCI</div>
+        <div class="trusted-item">🏛️ UEMOA</div>
+        <div class="trusted-item">🤝 AFD</div>
+        <div class="trusted-item">💡 Orange Digital</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEM ===== -->
+  <section class="problem-section" id="problem">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Le Problème</span>
+        <h2>Les PME africaines sont <span class="gradient-text">vulnérables</span></h2>
+        <p>Des millions d'entreprises africaines opèrent sans protection numérique adéquate.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-icon">🔓</div>
+          <h3>Sites non sécurisés</h3>
+          <p>La majorité des PME créent des sites web et applications sans mesures de sécurité suffisantes.</p>
+          <div class="problem-stat">73% des PME africaines</div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">💾</div>
+          <h3>Données mal protégées</h3>
+          <p>Les données clients sont stockées sans chiffrement ni protection adaptée aux menaces modernes.</p>
+          <div class="problem-stat">68% sans chiffrement</div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">👁️</div>
+          <h3>Vulnérabilités invisibles</h3>
+          <p>Les entreprises ne savent pas identifier les failles de sécurité dans leurs systèmes.</p>
+          <div class="problem-stat">89% non diagnostiquées</div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">👨‍💼</div>
+          <h3>Pas d'expert disponible</h3>
+          <p>Les experts en cybersécurité sont rares et coûteux, inaccessibles pour les petites structures.</p>
+          <div class="problem-stat">$50K+/an un expert</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES / MODULES ===== -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Nos Modules</span>
+        <h2>Une plateforme <span class="gradient-text">4-en-1</span></h2>
+        <p>Des outils IA complets pour sécuriser votre organisation de bout en bout.</p>
+      </div>
+      <div class="modules-grid">
+
+        <div class="module-card active" id="mod-assistant">
+          <div class="module-num">01</div>
+          <div class="module-icon-wrap">
+            <span class="module-icon">🤖</span>
+          </div>
+          <h3>AI Security Assistant</h3>
+          <p>Un assistant IA conversationnel qui répond à toutes vos questions de sécurité en temps réel et analyse votre configuration.</p>
+          <ul class="module-features">
+            <li>✓ Analyse de configuration</li>
+            <li>✓ Bonnes pratiques OWASP</li>
+            <li>✓ Actions prioritaires</li>
+            <li>✓ Support multilingue (FR/EN)</li>
+          </ul>
+          <a href="/login" class="module-btn">Explorer →</a>
+        </div>
+
+        <div class="module-card" id="mod-scanner">
+          <div class="module-num">02</div>
+          <div class="module-icon-wrap">
+            <span class="module-icon">🔍</span>
+          </div>
+          <h3>AI Website Security Scanner</h3>
+          <p>Analyse complète de votre site web : SSL, headers, versions vulnérables, OWASP Top 10, et génération de rapport IA.</p>
+          <ul class="module-features">
+            <li>✓ Scan SSL/HTTPS</li>
+            <li>✓ Security Headers</li>
+            <li>✓ OWASP Top 10</li>
+            <li>✓ Rapport PDF généré par IA</li>
+          </ul>
+          <a href="#scanner" class="module-btn">Scanner →</a>
+        </div>
+
+        <div class="module-card" id="mod-training">
+          <div class="module-num">03</div>
+          <div class="module-icon-wrap">
+            <span class="module-icon">🎓</span>
+          </div>
+          <h3>AI Cyber Awareness Training</h3>
+          <p>Formation intelligente et personnalisée pour vos employés. Quiz adaptatifs, simulations de phishing, conseils pratiques.</p>
+          <ul class="module-features">
+            <li>✓ Quiz cybersécurité adaptatifs</li>
+            <li>✓ Simulations de phishing</li>
+            <li>✓ Certificats de formation</li>
+            <li>✓ Suivi des progrès</li>
+          </ul>
+          <a href="/login" class="module-btn">Se former →</a>
+        </div>
+
+        <div class="module-card" id="mod-dev">
+          <div class="module-num">04</div>
+          <div class="module-icon-wrap">
+            <span class="module-icon">👨🏾‍💻</span>
+          </div>
+          <h3>Secure Development Assistant</h3>
+          <p>Pour les développeurs : analyse de code en temps réel, détection de vulnérabilités et suggestions de corrections sécurisées.</p>
+          <ul class="module-features">
+            <li>✓ Revue de code IA</li>
+            <li>✓ Détection SAST</li>
+            <li>✓ Corrections suggérées</li>
+            <li>✓ Intégration CI/CD</li>
+          </ul>
+          <a href="/login" class="module-btn">Analyser →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIVE SCANNER ===== -->
+  <section class="scanner-section" id="scanner">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Demo Live</span>
+        <h2>Scannez votre site <span class="gradient-text">maintenant</span></h2>
+        <p>Entrez une URL et obtenez un rapport de sécurité IA complet en quelques secondes.</p>
+      </div>
+      <div class="scanner-wrapper">
+        <div class="scanner-input-area">
+          <div class="url-input-group">
+            <span class="url-prefix">🌐</span>
+            <input
+              type="text"
+              id="scanUrl"
+              placeholder="https://votre-site.com"
+              class="url-input"
+              autocomplete="off"
+            />
+            <button class="scan-btn" id="scanBtn" onclick="startScan()">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>Scanner</span>
+            </button>
+          </div>
+          <p class="scanner-note">✓ Gratuit · ✓ Sans inscription · ✓ Résultats en 10 secondes</p>
+        </div>
+
+        <!-- Scan Progress -->
+        <div class="scan-progress" id="scanProgress" style="display:none">
+          <div class="progress-header">
+            <div class="scanning-icon">
+              <svg class="spin" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" stroke="#00f5d4" stroke-width="2" stroke-dasharray="20 40"/>
+              </svg>
+            </div>
+            <span id="progressLabel">Initialisation du scan...</span>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <div class="scan-steps" id="scanSteps">
+            <div class="scan-step pending" id="step-ssl">🔐 Vérification SSL/HTTPS</div>
+            <div class="scan-step pending" id="step-headers">🛡️ Analyse des Security Headers</div>
+            <div class="scan-step pending" id="step-owasp">🔎 Scan OWASP Top 10</div>
+            <div class="scan-step pending" id="step-server">🖥️ Détection version serveur</div>
+            <div class="scan-step pending" id="step-ai">🤖 Génération rapport IA</div>
+          </div>
+        </div>
+
+        <!-- Scan Results -->
+        <div class="scan-results" id="scanResults" style="display:none">
+          <div class="results-header">
+            <div class="results-title">
+              <h3>Rapport de Sécurité ZAKSOFT</h3>
+              <span class="results-url" id="resultUrl"></span>
+              <span id="offlineBadge" style="display:none;align-items:center;gap:4px;font-size:11px;background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3);border-radius:6px;padding:2px 8px;margin-top:4px;">⚠️ Mode démonstration</span>
+            </div>
+            <div class="score-badge" id="scoreBadge">
+              <span class="score-val" id="scoreVal">0</span>
+              <span class="score-max">/100</span>
+            </div>
+          </div>
+
+          <div class="results-body">
+            <div class="results-col">
+              <h4>🔍 Risques détectés</h4>
+              <div class="findings-list" id="findingsList"></div>
+            </div>
+            <div class="results-col">
+              <h4>✅ Recommandations IA</h4>
+              <div class="recs-list" id="recsList"></div>
+            </div>
+          </div>
+
+          <div class="ai-summary" id="aiSummary">
+            <div class="ai-summary-header">
+              <span class="ai-badge">🤖 Analyse IA</span>
+            </div>
+            <p id="aiSummaryText"></p>
+          </div>
+
+          <div class="results-footer">
+            <button class="btn btn-primary" onclick="downloadReport()">📄 Télécharger le rapport PDF</button>
+            <button class="btn btn-secondary" onclick="resetScan()">🔄 Nouveau scan</button>
+            <a href="/login" class="btn btn-ghost">Dashboard complet →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Comment ça marche</span>
+        <h2>Protégé en <span class="gradient-text">3 étapes</span></h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon">🔗</div>
+          <h3>Connectez votre site</h3>
+          <p>Entrez l'URL de votre site web ou application. Aucune installation requise.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon">🔍</div>
+          <h3>L'IA analyse</h3>
+          <p>Notre moteur IA scanne votre infrastructure et identifie toutes les vulnérabilités.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon">📊</div>
+          <h3>Obtenez votre plan</h3>
+          <p>Recevez un rapport complet avec des actions concrètes priorisées par niveau de risque.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Témoignages</span>
+        <h2>Ils nous font <span class="gradient-text">confiance</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"ZAKSOFT a détecté des failles critiques sur notre site e-commerce que nous ignorions depuis des mois. Le rapport IA était clair et actionnable."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AK</div>
+            <div>
+              <strong>Aya Konan</strong>
+              <span>Fondatrice, Boutique Éclat CI</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card featured">
+          <div class="stars">★★★★★</div>
+          <p>"En tant que PME sans équipe IT, ZAKSOFT nous a permis de comprendre nos risques numériques et de corriger 80% des problèmes en une semaine."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MB</div>
+            <div>
+              <strong>Mamadou Bah</strong>
+              <span>DG, TechTransport Sénégal</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"La formation cybersécurité pour nos employés a transformé notre culture sécurité. Maintenant toute l'équipe sait reconnaître le phishing."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">FO</div>
+            <div>
+              <strong>Fatima Ouédraogo</strong>
+              <span>RH, Cabinet MedBF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Tarification</span>
+        <h2>Simple et <span class="gradient-text">transparent</span></h2>
+        <p>Des plans adaptés à chaque étape de croissance de votre entreprise.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card" id="plan-starter">
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">Gratuit<span>/mois</span></div>
+          <div class="plan-desc">Parfait pour démarrer</div>
+          <ul class="plan-features">
+            <li>✓ 3 scans/mois</li>
+            <li>✓ Rapport basique</li>
+            <li>✓ AI Assistant (10 questions)</li>
+            <li>✓ Score sécurité</li>
+            <li class="disabled">✗ Scan illimité</li>
+            <li class="disabled">✗ Formation équipe</li>
+          </ul>
+          <a href="/login" class="plan-btn">Commencer →</a>
+        </div>
+        <div class="pricing-card featured" id="plan-pro">
+          <div class="plan-badge">Le plus populaire</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">29 000 FCFA<span>/mois</span></div>
+          <div class="plan-desc">Pour les PME en croissance</div>
+          <ul class="plan-features">
+            <li>✓ Scans illimités</li>
+            <li>✓ Rapport IA complet PDF</li>
+            <li>✓ AI Assistant illimité</li>
+            <li>✓ Formation 10 employés</li>
+            <li>✓ Alertes temps réel</li>
+            <li class="disabled">✗ Code review IA</li>
+          </ul>
+          <a href="/login" class="plan-btn featured-btn">Choisir Pro →</a>
+        </div>
+        <div class="pricing-card" id="plan-enterprise">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-price">Sur devis</div>
+          <div class="plan-desc">Pour les grandes organisations</div>
+          <ul class="plan-features">
+            <li>✓ Tout du plan Pro</li>
+            <li>✓ Code review IA</li>
+            <li>✓ Formation équipe illimitée</li>
+            <li>✓ API access</li>
+            <li>✓ SLA garanti</li>
+            <li>✓ Support dédié 24/7</li>
+          </ul>
+          <a href="mailto:contact@zaksoft.ai" class="plan-btn">Nous contacter →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-orb"></div>
+        <h2>Prêt à sécuriser votre<br/><span class="gradient-text">avenir numérique</span> ?</h2>
+        <p>Rejoignez les centaines de PME africaines qui font confiance à ZAKSOFT AI pour protéger leurs systèmes.</p>
+        <div class="cta-actions">
+          <a href="/login" class="btn btn-primary" id="cta-bottom">Commencer gratuitement →</a>
+          <a href="mailto:contact@zaksoft.ai" class="btn btn-ghost">Parler à un expert</a>
+        </div>
+        <div class="cta-stats">
+          <span>🔐 Sécurisé · 🌍 Made in Africa · 🤖 Powered by AI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-text">ZAK<span class="logo-accent">SOFT</span></span>
+            <span class="logo-sub">AI SECURE PLATFORM</span>
+          </div>
+          <p>Rendre la cybersécurité accessible à toutes les entreprises africaines grâce à l'intelligence artificielle.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="GitHub">⌨</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Produit</h4>
+          <ul>
+            <li><a href="#features">Modules IA</a></li>
+            <li><a href="#scanner">Scanner gratuit</a></li>
+            <li><a href="#pricing">Tarifs</a></li>
+            <li><a href="/login">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Blog sécurité</a></li>
+            <li><a href="#">Guides OWASP</a></li>
+            <li><a href="#">API Reference</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@zaksoft.ai">contact@zaksoft.ai</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Partenariats</a></li>
+            <li><a href="#">Cyber4Africa</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ZAKSOFT AI Secure Platform. Tous droits réservés. · Côte d'Ivoire 🇨🇮</p>
+        <div class="footer-links">
+          <a href="#">Confidentialité</a>
+          <a href="#">CGU</a>
+          <a href="#">Sécurité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
+
