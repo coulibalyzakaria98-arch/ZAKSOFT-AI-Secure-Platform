@@ -1,159 +1,151 @@
-# 🛡️ ZAKSOFT AI Secure Platform
+# ZAKSOFT AI Secure Platform
 
-> **AI-powered cybersecurity platform built for African SMEs**
+AI-powered cybersecurity assistant for African SMEs — detect, understand, and fix vulnerabilities without technical expertise.
 
-ZAKSOFT AI Secure Platform helps African SMEs, organizations, and institutions identify digital risks, improve security practices, and adopt safer technologies — without needing a dedicated cybersecurity expert.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green.svg)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://docker.com)
 
 ---
 
-## 🌍 Why ZAKSOFT?
+## Features
+
+| Module | Description | Status |
+|--------|-------------|--------|
+| **AI Scanner** | SSL, security headers, OWASP Top 10 | MVP |
+| **AI Assistant** | Cybersecurity chatbot (FR/EN) | MVP |
+| **Dashboard** | Real-time scan overview and alerts | MVP |
+| **Training** | Cybersecurity quizzes and awareness | MVP |
+| **Dev Assistant** | Source code vulnerability analysis | MVP |
+| **Reports** | AI-generated reports and history | MVP |
+
+---
+
+## Why ZAKSOFT?
 
 - **73%** of African SMEs lack adequate digital security
-- **$50K+/year** to hire a cybersecurity expert (inaccessible for SMEs)
 - **89%** of vulnerabilities go undetected without automated scanning
-
-**ZAKSOFT makes enterprise-grade cybersecurity accessible to every African business.**
-
----
-
-## 🚀 Features (MVP)
-
-### Module 1 — AI Security Assistant 🤖
-- Conversational AI that answers cybersecurity questions in real time
-- Analyzes configurations and proposes prioritized actions
-- Supports French and English
-
-### Module 2 — AI Website Security Scanner 🔍
-- Scans for SSL/HTTPS, Security Headers, OWASP Top 10
-- Detects server versions, misconfigurations, exposed files
-- Generates full AI-written security reports with a security score
-
-### Module 3 — AI Cyber Awareness Training 🎓
-- Adaptive cybersecurity quizzes for non-technical employees
-- Phishing simulation exercises
-- Progress tracking and completion certificates
-
-### Module 4 — Secure Development Assistant 👨🏾‍💻
-- Paste code → Instant vulnerability detection (OWASP, SQL injection, weak tokens, etc.)
-- Explains each vulnerability and provides secure code fixes
-- Supports JavaScript, Python, PHP, SQL
+- **$50K+/year** to hire a cybersecurity expert — inaccessible for most SMEs
 
 ---
 
-## 📁 Project Structure
+## Quick Start
 
-```
-ZAKSOFT AI Secure Platform/
-├── index.html          # Main landing page
-├── styles.css          # Landing page styles (dark cyber theme)
-├── app.js              # Landing page JS (scanner demo, animations)
-├── dashboard.html      # Full application dashboard
-├── dashboard.css       # Dashboard styles
-├── dashboard.js        # Dashboard logic (chat, quiz, code analysis)
-└── README.md           # This file
-```
-
----
-
-## 🛠️ Tech Stack (MVP Demo)
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | HTML5, Vanilla CSS, Vanilla JavaScript |
-| Fonts | Google Fonts (Space Grotesk, Inter) |
-| Design | Dark glassmorphism, African identity motifs |
-| AI (Demo) | Rule-based responses (replace with OpenAI API) |
-| Deployment | Vercel / Netlify (static) |
-
-### Planned Production Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React + TypeScript |
-| Backend | FastAPI (Python) / Node.js |
-| Database | PostgreSQL + Redis |
-| AI/LLM | OpenAI GPT-4 / Claude / Mistral |
-| Security Scanning | OWASP ZAP, Nmap, SSL Labs API |
-| Auth | JWT + MFA (TOTP) |
-| Infrastructure | Docker + Kubernetes |
-| CI/CD | GitHub Actions |
-
----
-
-## 🏃‍♂️ Quick Start
-
-No installation required. Open in any modern browser:
+### Local development
 
 ```bash
-# Clone the repository
-git clone https://github.com/votre-username/zaksoft-ai-platform.git
-cd zaksoft-ai-platform
+git clone https://github.com/coulibalyzakaria98-arch/ZAKSOFT-AI-Secure-Platform.git
+cd ZAKSOFT-AI-Secure-Platform
 
-# Open directly in browser
-open index.html
+# Start PostgreSQL + backend (with hot reload)
+docker compose up -d
 
-# Or use a local server (recommended)
-npx serve .
-# → http://localhost:3000
+# Start React frontend
+cd frontend && npm install && npm run dev
+# → http://localhost:5173
+
+# Landing page: open index.html in a browser
+```
+
+### Production (VPS — Ubuntu 22.04)
+
+```bash
+bash scripts/setup-vps.sh
+
+cp .env.example .env.prod
+nano .env.prod   # Set passwords + GROQ_API_KEY
+
+docker compose -f docker-compose.prod.yml up -d --build
+
+certbot --nginx -d yourdomain.com   # Free SSL
 ```
 
 ---
 
-## 🎯 Scanner Demo
+## Project Structure
 
-The scanner accepts any URL and simulates a real security scan:
-
-- **High-score URLs** (google.com, github.com, microsoft.com): Score 88-91/100
-- **Standard URLs**: Score 65-72/100 with typical SME vulnerabilities
-- **Test/hack URLs** (localhost, hack*, test*): Score 28-34/100 with critical issues
-
----
-
-## 🗺️ Roadmap
-
-### Mois 1 — Foundation ✅
-- [x] Landing page with full design system
-- [x] Dashboard with 7 sections
-- [x] Scanner demo (simulated)
-- [x] AI Assistant (rule-based)
-- [x] Training module + Quiz
-- [x] Dev code analyzer
-
-### Mois 2 — Real Integration 🔄
-- [ ] Real scanner backend (OWASP ZAP API)
-- [ ] OpenAI GPT-4 integration for AI Assistant
-- [ ] User authentication (JWT + MFA)
-- [ ] Database (PostgreSQL)
-- [ ] PDF report generation
-
-### Mois 3 — MVP Launch 🚀
-- [ ] Public beta
-- [ ] Onboarding 10 pilot SMEs
-- [ ] Mobile responsive polish
-- [ ] API documentation
-- [ ] Security audit of the platform itself
+```
+ZAKSOFT-AI-Secure-Platform/
+├── backend/               # FastAPI backend
+│   ├── app/
+│   │   ├── core/          # Config, JWT security
+│   │   ├── models/        # SQLAlchemy ORM (User, Website, Scan, Report)
+│   │   ├── routers/       # /api/scan  /api/auth  /api/chat  /api/health
+│   │   ├── schemas/       # Pydantic validation
+│   │   └── services/      # Scanner, SSL checker, AI report (multi-provider)
+│   ├── Dockerfile
+│   └── requirements.txt
+├── frontend/              # React 18 dashboard
+│   ├── src/
+│   │   ├── components/    # Layout, Scanner, Dashboard widgets
+│   │   ├── context/       # AuthContext (JWT persistence)
+│   │   ├── pages/         # 6 pages: Dashboard Scanner Assistant Training Dev Reports
+│   │   └── services/      # Axios client with JWT interceptor
+│   ├── Dockerfile
+│   └── nginx.conf         # SPA serving + /api/ proxy to backend
+├── index.html             # Public landing page (connected to backend)
+├── app.js                 # Landing scanner — real fetch() + fallback
+├── scripts/
+│   ├── setup-vps.sh       # Docker + Nginx + Certbot on Ubuntu 22.04
+│   └── deploy.sh          # git pull + docker compose rebuild
+├── docker-compose.yml         # Development
+├── docker-compose.prod.yml    # Production
+└── .env.example
+```
 
 ---
 
-## 🌍 Positioning for Cyber4Africa
+## Tech Stack
 
-> *"ZAKSOFT AI Secure Platform is building an AI-powered cybersecurity assistant that helps African SMEs identify digital risks, improve security practices, and adopt safer technologies — aligned with Cyber4Africa's security-by-design and AI trust principles."*
-
----
-
-## 📬 Contact
-
-- **Email**: contact@zaksoft.ai
-- **Website**: zaksoft-ai-security.vercel.app
-- **LinkedIn**: linkedin.com/company/zaksoft-ai
-- **Location**: Côte d'Ivoire 🇨🇮
-
----
-
-## 📄 License
-
-MIT License — Free to use, modify, and distribute.
+| Layer | Technology |
+|-------|------------|
+| Frontend | React 18 + Vite + Tailwind CSS |
+| Backend | FastAPI (Python 3.11) |
+| Database | PostgreSQL 15 (SQLite in dev) |
+| AI | Groq / Anthropic / OpenAI — cascade with local fallback |
+| Scanner | httpx + ssl + cryptography.x509 |
+| Auth | JWT (python-jose) + bcrypt |
+| Deployment | Docker Compose + Nginx |
 
 ---
 
-*Built with ❤️ for Africa · Powered by AI · Security-by-Design*
+## Environment Variables
+
+Copy `.env.example` to `.env.prod` and set:
+
+| Variable | Description |
+|----------|-------------|
+| `DB_PASSWORD` | PostgreSQL password |
+| `SECRET_KEY` | JWT secret — `python -c "import secrets; print(secrets.token_hex(32))"` |
+| `GROQ_API_KEY` | Free AI — get at console.groq.com |
+| `ANTHROPIC_API_KEY` | Optional — Claude Haiku |
+| `OPENAI_API_KEY` | Optional — GPT-4o-mini |
+
+At least one AI key is required for the AI report and assistant features. Groq is free and recommended.
+
+---
+
+## API Endpoints
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/api/scan` | No | Full security scan |
+| POST | `/api/scan/save` | JWT | Scan + save to history |
+| GET | `/api/scans` | JWT | Scan history |
+| POST | `/api/chat` | No | AI assistant |
+| POST | `/api/auth/register` | No | Create account |
+| POST | `/api/auth/login` | No | Get JWT token |
+| GET | `/api/auth/me` | JWT | Current user |
+| GET | `/api/health` | No | Health check |
+
+Interactive docs: `http://localhost:8000/docs`
+
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE)
+
+Made in Cote d'Ivoire for African SMEs.

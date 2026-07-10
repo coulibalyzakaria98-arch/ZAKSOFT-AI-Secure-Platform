@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Backend secrets & local DB
+backend/.env
+backend/.env.prod
+backend/*.db
+backend/*.sqlite3
+backend/zaksoft.db
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+frontend/.env.*.local
+
+# Root node_modules (landing page deps if any)
+node_modules/
+dist/
+
+# Env files (never commit secrets)
+.env
+.env.prod
+.env.local
+.env.production
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+*.pid
+docker-compose.override.yml
+
+# SSL certs
+*.pem
+*.key
+*.crt
+acme.json
