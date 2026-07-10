@@ -52,7 +52,8 @@ if (counters.length) {
 
 // ===== SCANNER — Real API + animation =====
 
-const API_BASE = 'http://localhost:8000';
+// Set window.ZAKSOFT_API_URL before this script to override (e.g. in index.html for production)
+const API_BASE = window.ZAKSOFT_API_URL || 'http://localhost:8000';
 
 // Fallback demo data shown when backend is offline
 const FALLBACK_DATA = {

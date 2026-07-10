@@ -23,17 +23,21 @@ class Settings:
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
 
-    # CORS — accepts a JSON array string or defaults to allow all
+    # CORS — accepts JSON array, comma-separated string, or "*"
     @property
     def CORS_ORIGINS(self) -> list:
-        raw = os.getenv("CORS_ORIGINS", "")
-        if not raw:
+        raw = os.getenv("CORS_ORIGINS", "*")
+        if raw == "*":
             return ["*"]
         try:
             return json.loads(raw)
         except (json.JSONDecodeError, ValueError):
-            # Comma-separated fallback: "https://a.com,https://b.com"
             return [o.strip() for o in raw.split(",") if o.strip()]
+
+    # Allow wildcard subdomains (Vercel preview URLs, etc.)
+    @property
+    def CORS_ORIGIN_REGEX(self) -> str | None:
+        return os.getenv("CORS_ORIGIN_REGEX", r"https://.*\.vercel\.app")
 
     # Scanner timeouts
     HTTP_TIMEOUT: float = 15.0
